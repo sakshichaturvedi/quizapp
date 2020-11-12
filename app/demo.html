@@ -1,0 +1,562 @@
+
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Quiz app</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+  <body id="page-top">
+
+    
+  <!-- Header -->
+  <body class=" masthead">
+    <div class="container text-center my-auto">
+      <div class="row" style=" z-index:1000;">
+        
+                       <!--vertical menu-->
+                       <ul class="menu">
+                        <li  onclick="logocontent()"><img height="40px" src="./img/quiz.png"></li>
+
+                        <li title="signin" id="signin" onclick="signin()"><a href="#" class="signin">Sign In</a></li>
+
+                        <li title="animals" id="ani" onclick="Ani_Content()" class="sub-menu"><a href="#" class="animals">Animals</a></li>                                
+                        <li title="sports" id="sport" onclick="Spo_Content()" class="sub-menu"><a href="#" class="sports">Sports</a></li>
+                        <li title="generalknowledge" id="GK" onclick="GK_Content();" class="sub-menu"><a href="#" class="generalknowledge" >General knowledge</a></li>
+                        <li title="it" id="IT" onclick="It_Content()" class="sub-menu"><a href="#" class="it">IT</a></li>
+            
+                        <li title="geography" id="geo" onclick="Geo_Content()" class="sub-menu"><a href="#" class="geography">Geography</a></li>
+                        
+  
+    
+                      <li title="signout" id="signout" style="display: none;"><a href="#" class="signout">Logout</a></li> 
+                      
+            
+                      </ul>
+        </div>
+    </div>
+
+
+    <div id="login_modal" class="modal-content" style="display:none;width: 20%;margin-left: 40%;">
+      <div class="modal-heading" style="width: 20%;">
+          <img src="./img/quiz.png" style="margin-left: 15%;">
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">        
+                  <div class="tabbable-panel">
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs ">
+                                <li class="active" style="margin-right: 20%;margin-left: 15%;">
+                                    <a href="#tab_default_1" data-toggle="tab">LOGIN</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_default_2" data-toggle="tab">SIGNUP</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_default_1">
+                                  <div class="modal-body">
+                                      <form name="loginform" action="auth" method="POST" role="form">
+                                          <div class="form-group">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                  <span class="glyphicon glyphicon-user"></span>
+                                                  </span>
+                                                  <input type="text" id = "username"class="form-control" name="username" placeholder="Username" />
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                  <span class="glyphicon glyphicon-lock"></span>
+                                                  </span>
+                                                  <input type="password" class="form-control" name="password" placeholder="Password" />
+                          
+                                              </div>
+                          
+                                          </div>
+                          
+                                          <div class="form-group text-center">
+                                              <button type="submit" class="btn btn-success btn-lg" value="login" onclick="login();">Login</button>  
+                                          </div>
+                          
+                                      </form>
+                                  </div>
+                                  </div>
+                                <div class="tab-pane" id="tab_default_2">
+                                  <div class="modal-body">
+                                      <form action="" role="form">
+                                          <div class="form-group">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                  <span class="glyphicon glyphicon-user"></span>
+                                                  </span>
+                                                  <input type="text" class="form-control" placeholder="Name" />
+                                              </div>
+                                          </div>
+
+                                          <div class="form-group">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                  <span class="glyphicon glyphicon-user"></span>
+                                                  </span>
+                                                  <input type="text" class="form-control" placeholder="User Name" />
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                  <span class="glyphicon glyphicon-lock"></span>
+                                                  </span>
+                                                  <input type="password" class="form-control" placeholder="Password" />
+                          
+                                              </div>
+                          
+                                          </div>
+                          
+                                          <div class="form-group text-center">
+                                              <button type="submit" class="btn btn-success btn-lg">SIGNUP</button>
+                                          </div>
+                          
+                                      </form>
+                                  </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <hr />
+      
+  </div>
+
+      
+
+<!--General Knowledge-->
+<div id="gkquiz" class="container" style="display:none;margin-top: -8%;">
+  <!--<div id="loader"></div>-->
+   <div id="gameGK" class="justify-center flex-column hidden">
+     <div id="hud">
+       <div id="hud-item">
+         <p id="progressTextGK" class="hud-prefix">
+           Question
+         </p>
+
+       </div>
+       <div id="hud-item" style="margin-top: -1%;">
+         <p class="hud-prefix">
+           Score
+         </p>
+         <h1 class="hud-main-text" id="scoreGK" style="    margin-top: -46%;">
+           0
+         </h1>
+       </div>
+     </div>
+     <h2 id="questionGK"></h2>
+     <div class="choice-container">
+       <p class="choice-prefix">A</p>
+       <p class="choice-textGK" data-number="1"></p>
+     </div>
+     <div class="choice-container">
+       <p class="choice-prefix">B</p>
+       <p class="choice-textGK" data-number="2"></p>
+     </div>
+     <div class="choice-container">
+       <p class="choice-prefix">C</p>
+       <p class="choice-textGK" data-number="3"></p>
+     </div>
+     <div class="choice-container">
+       <p class="choice-prefix">D</p>
+       <p class="choice-textGK" data-number="4"></p>
+     </div>
+   </div>
+    </div>
+
+<!--Animals Quiz-->
+<div style="z-index: -1000;"> 
+ <div id="aniquiz" class="container" style="display:none;margin-top: -8%;">
+   <!--<div id="loader"></div>-->
+    <div id="gameAN" class="justify-center flex-column hidden">
+      <div id="hud">
+        <div id="hud-item">
+          <p id="progressTextAN" class="hud-prefix">
+            Question
+          </p>
+        </div>
+        <div id="hud-item" style="margin-top: -1%;">
+          <p class="hud-prefix">
+            Score
+          </p>
+          <h1 class="hud-main-text" id="scoreAN">
+            0
+          </h1>
+        </div>
+      </div>
+      <h2 id="questionAN"></h2>
+      <div class="choice-container">
+        <p class="choice-prefix">A</p>
+        <p class="choice-textAN" data-number="1"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">B</p>
+        <p class="choice-textAN" data-number="2"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">C</p>
+        <p class="choice-textAN" data-number="3"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">D</p>
+        <p class="choice-textAN" data-number="4"></p>
+      </div>
+    </div>
+    
+  </div>
+ </div>
+
+
+  
+<!--Sports Quiz-->
+ 
+ <div id="spoquiz" class="container" style="display:none;margin-top: -8%;">
+   <!--<div id="loader"></div>-->
+    <div id="gameSPO" class="justify-center flex-column hidden">
+      <div id="hud">
+        <div id="hud-item">
+          <p id="progressTextSPO" class="hud-prefix">
+            Question
+          </p>
+        </div>
+        <div id="hud-item" style="margin-top: -1%;">
+          <p class="hud-prefix">
+            Score
+          </p>
+          <h1 class="hud-main-text" id="scoreSPO">
+            0
+          </h1>
+        </div>
+      </div>
+      <h2 id="questionSPO"></h2>
+      <div class="choice-container">
+        <p class="choice-prefix">A</p>
+        <p class="choice-textSPO" data-number="1"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">B</p>
+        <p class="choice-textSPO" data-number="2"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">C</p>
+        <p class="choice-textSPO" data-number="3"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">D</p>
+        <p class="choice-textSPO" data-number="4"></p>
+      </div>
+    </div>
+    
+  </div>
+
+
+  
+<!--ComputerSCience Quiz-->
+ 
+ <div id="itquiz" class="container" style="display:none;margin-top: -8%;">
+   <!--<div id="loader"></div>-->
+    <div id="gameIT" class="justify-center flex-column hidden">
+      <div id="hud">
+        <div id="hud-item">
+          <p id="progressTextIT" class="hud-prefix">
+            Question
+          </p>
+        </div> 
+        <div id="hud-item" style="margin-top: -1%;">
+          <p class="hud-prefix">
+            Score
+          </p>
+          <h1 class="hud-main-text" id="scoreIT">
+            0
+          </h1>
+        </div>
+      </div>
+      <h2 id="questionIT"></h2>
+      <div class="choice-container">
+        <p class="choice-prefix">A</p>
+        <p class="choice-textIT" data-number="1"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">B</p>
+        <p class="choice-textIT" data-number="2"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">C</p>
+        <p class="choice-textIT" data-number="3"></p>
+      </div>
+      <div class="choice-container">
+        <p class="choice-prefix">D</p>
+        <p class="choice-textIT" data-number="4"></p>
+      </div>
+    </div>
+    
+  </div>
+
+
+<!--Geography Quiz-->
+ 
+<div id="geoquiz" class="container" style="display:none;margin-top: -8%;">
+<!--<div id="loader"></div>-->
+<div id="gameGEO" class="justify-center flex-column hidden">
+  <div id="hud">
+    <div id="hud-item">
+      <p id="progressTextGEO" class="hud-prefix">
+        Question
+      </p>
+    </div>
+    <div id="hud-item" style="margin-top: -1%;">
+      <p class="hud-prefix">
+        Score
+      </p>
+      <h1 class="hud-main-text" id="scoreGEO">
+        0
+      </h1>
+    </div>
+  </div>
+  <h2 id="questionGEO"></h2>
+  <div class="choice-container">
+    <p class="choice-prefix">A</p>
+    <p class="choice-textGEO" data-number="1"></p>
+  </div>
+  <div class="choice-container">
+    <p class="choice-prefix">B</p>
+    <p class="choice-textGEO" data-number="2"></p>
+  </div>
+  <div class="choice-container">
+    <p class="choice-prefix">C</p>
+    <p class="choice-textGEO" data-number="3"></p>
+  </div>
+  <div class="choice-container">
+    <p class="choice-prefix">D</p>
+    <p class="choice-textGEO" data-number="4"></p>
+  </div>
+</div>
+
+</div>
+
+
+
+<!--end-->
+ <div id="end" class="container" style="display:none">
+   <div  id ="iscore" class="flex-center flex-column">
+     <h1 align:center>Your score is:</h1>
+     <h1 id="finalScore"></h1>
+<!--<button id="scorecard" onclick="scorecard()">Scorecard</button> -->
+ <!-- <script>
+  function scorecard(){
+    document.getElementById("fscore").style.display="block";
+    // document.getElementById("iscore").style.display="none";
+  }
+</script>   -->
+     <form id="fscore" action="http://localhost:3008/user" method="POST" style="display:block">
+      <!-- User_ID: <input type="number" name="user_id"> -->
+      Name: <input type="text" name="name"> <br>
+      Score: <input type="number" value="finalScore" name="score"> 
+     <input type="submit" value="Submit">    
+     
+</form>
+<form id="fscorecard" action="http://localhost:3008/user" method="GET" style="display:block">
+  <input type="submit" value="Scorecard">    
+ </form>
+   </div>
+ </div>
+
+<!--RESULT-->
+
+ <div id="result" class="row" style="display:none;">
+   <p></p>
+ </div>
+
+
+  </body>
+    
+
+    <div id="test" class="row" style="display:none" >
+      <div class="col-md-3"></div> 
+      <div class="col-md-6">
+       <p  style="text-align:center">         
+        Welcome to quiz world!
+      </p>
+       
+      </div> 
+      <div class="col-md-3"></div> 
+     </div></div>>
+
+
+     
+     
+     <!--<script src="./cat.css">
+     
+     </script>
+     
+     <script src="./quiz.css">
+     
+     </script>
+     
+    -->
+     
+       <!-- Scroll to Top Button-->
+       <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+         <i class="fas fa-angle-up"></i>
+       </a>
+     
+       <!-- Bootstrap core JavaScript -->
+       <script src="vendor/jquery/jquery.min.js"></script>
+       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     
+       <!-- Plugin JavaScript -->
+       <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+     
+       <!-- Custom scripts for this template -->
+       <script src="js/stylish-portfolio.min.js"></script>
+     
+     
+       <style>
+       
+     
+     @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+     .menu {
+       position: fixed;
+       top: 0;
+       left: 0;
+       height: 100%;
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       background: #fff4f5;
+     }
+     .menu li a{
+         display:block;
+         height:em;
+         width:5em;
+         text-indent:-500em;
+         line-height:5em;
+         text-align:center;
+         color: #ff5c62;
+         background: #fff4f5;
+         position: relative;
+         border-bottom: 1px solid #ffe2e3;
+     }
+     .menu li a:before {
+       font-family: FontAwesome;
+       text-indent: 0em;
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       font-size: 1.4em;
+     }
+     
+     .menu li a.signin:before {
+       content: "\f090";
+     }
+
+     .menu li a.signout:before {
+       content: "\f08b";
+     }
+     
+     .menu li a.geography:before {
+       content: "\f277";
+     }
+     .menu li a.it:before {
+       content: "\f109";
+     }
+     .menu li a.sports:before {
+       content: "\f1e3";
+     }
+     .menu li a.contact:before {
+       content: "\f2b9";
+     }
+     .menu li a.generalknowledge:before {
+       content: "\f02d";
+     }
+     .menu li a.animals:before {
+       content: "\f262";
+     }
+     .menu li a:hover{
+       background: #ff5c62;
+       color: #fff;
+     }
+     .menu li.current a {
+       background: #ff5e5e;
+       color: #fff;
+     }
+     .menu li a.active {
+       background: #ff5e5e;
+       color: #fff;
+     }
+     .menu li a.active:after{
+         position:absolute;
+         left:5em;
+         top:0;
+         content:"";
+         border:2.5em solid transparent;
+         border-left-color:#ff5c62;
+         border-width: 2.5em 1em
+     }
+     .menu li{
+         position:relative;
+     }
+     .menu li.sub-menu:after{
+         content: attr(title);
+         position:absolute;
+         left:5em;
+         top:0;
+         height:5em;
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+         text-transform:uppercase;
+         background:#ff5c62;
+         padding:2em;
+         transition: all 0.3s ease-in-out;
+         visibility:hidden;
+         opacity:0;
+     }
+     .menu li:hover:after{
+         visibility:visible;
+         opacity:1;
+     }
+       </style>
+
+
+
+    <script src="./demo.js"></script>
+    <script src="./questions.json"></script>
+  </body>
+</html>

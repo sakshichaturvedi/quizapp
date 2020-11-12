@@ -1,0 +1,32 @@
+[ 
+    {
+        "question": "Who is the inventor of WWW?",
+       "choice1":  "Bill Gates",
+        "choice2":  "Lee.N.Feyog",
+        "choice3":  "N.Resscl",
+        "choice4":  "Tim Berners lee",
+        "answer": 4
+    },
+    
+    {
+    "question": "World Trade Organization (WTO) came into existence in ?",
+    
+    "choice1":  "1992",
+    "choice2":  "1993",
+    "choice3":  "1994",
+    "choice4":  "1995",
+   "answer": 4
+    
+    },
+    
+    {
+        
+       "question":  "the best conductor of heat among the following is?",
+       "choice1":  "Alcohol",
+    "choice2":  "Mercury",
+    "choice3":  "Ether",
+    "choice4":  "Water",
+    "answer": 2
+    }
+]
+    
